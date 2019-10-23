@@ -1,0 +1,64 @@
+﻿@model Mitt_job_posting_portal.Models.Course
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InternshipStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternshipStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InternshipEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternshipEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseEndeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseEndeDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

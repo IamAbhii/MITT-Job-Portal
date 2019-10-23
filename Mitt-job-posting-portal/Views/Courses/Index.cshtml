@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Mitt_job_posting_portal.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InternshipStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InternshipEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseEndeDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InternshipStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InternshipEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseEndeDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
