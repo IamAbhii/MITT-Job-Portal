@@ -30,6 +30,7 @@ namespace Mitt_job_posting_portal.Models
     public virtual User User { get; set; }
     public int CourseId { get; set; }
     public Course CorseName { get; set; }
+    public string Name { get; set; }
     public DateTime BirthDate { get; set; }
     public string PreviousEducation { get; set; }
     public string PreviousEducationDetail { get; set; }

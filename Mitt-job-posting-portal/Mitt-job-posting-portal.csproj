@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201910241432185_tblStudentBirthDateAndEducationDetailAdded.Designer.cs">
       <DependentUpon>201910241432185_tblStudentBirthDateAndEducationDetailAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910241435234_tblStudentNameAdded.cs" />
+    <Compile Include="Migrations\201910241435234_tblStudentNameAdded.Designer.cs">
+      <DependentUpon>201910241435234_tblStudentNameAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910241432185_tblStudentBirthDateAndEducationDetailAdded.resx">
       <DependentUpon>201910241432185_tblStudentBirthDateAndEducationDetailAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241435234_tblStudentNameAdded.resx">
+      <DependentUpon>201910241435234_tblStudentNameAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
