@@ -175,6 +175,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AccountHelper.cs" />
     <Compile Include="Migrations\201910221850390_Intial.cs" />
     <Compile Include="Migrations\201910221850390_Intial.Designer.cs">
       <DependentUpon>201910221850390_Intial.cs</DependentUpon>
@@ -260,6 +261,7 @@
     <Content Include="Views\JobApplications\Details.cshtml" />
     <Content Include="Views\JobApplications\Edit.cshtml" />
     <Content Include="Views\JobApplications\Index.cshtml" />
+    <Content Include="Views\Account\RegisterInstructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
