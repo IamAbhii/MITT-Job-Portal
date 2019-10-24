@@ -262,6 +262,7 @@
     <Content Include="Views\JobApplications\Edit.cshtml" />
     <Content Include="Views\JobApplications\Index.cshtml" />
     <Content Include="Views\Account\RegisterInstructor.cshtml" />
+    <Content Include="Views\Account\RegisterStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
