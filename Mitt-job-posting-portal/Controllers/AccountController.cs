@@ -156,12 +156,6 @@ namespace Mitt_job_posting_portal.Controllers
         {
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-          // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-          // Send an email with this link
-          // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-          // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-          // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
           return RedirectToAction("Index", "Home");
         }
         AddErrors(result);
@@ -191,12 +185,6 @@ namespace Mitt_job_posting_portal.Controllers
           _db.Instructor.Add(instructor);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-          // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-          // Send an email with this link
-          // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-          // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-          // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
           return RedirectToAction("Index", "Home");
         }
@@ -232,11 +220,35 @@ namespace Mitt_job_posting_portal.Controllers
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-          // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-          // Send an email with this link
-          // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-          // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-          // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+          return RedirectToAction("Index", "Home");
+        }
+        AddErrors(result);
+      }
+
+      // If we got this far, something failed, redisplay form
+      return View(model);
+    }
+
+    [AllowAnonymous]
+    public ActionResult RegisterEmployer()
+    {
+      return View();
+    }
+    [HttpPost]
+    [AllowAnonymous]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> RegisterEmployer(RegisterEmployerViewModel model)
+    {
+      if (ModelState.IsValid)
+      {
+        var user = new User { UserName = model.Email, Email = model.Email };
+        var result = await UserManager.CreateAsync(user, model.Password);
+        if (result.Succeeded)
+        {
+          var employer = new Employer() { UserId = user.Id, CompanyName = model.CompanyName, EmailAdress = model.EmailAdress };
+          _db.Employer.Add(employer);
+          _db.SaveChanges();
+          await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
           return RedirectToAction("Index", "Home");
         }
