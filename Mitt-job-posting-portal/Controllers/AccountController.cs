@@ -210,7 +210,11 @@ namespace Mitt_job_posting_portal.Controllers
     [AllowAnonymous]
     public ActionResult RegisterStudent()
     {
-      return View();
+      var registrationStudentViewModel = new RegisterStudentViewModel()
+      {
+        Courses = _db.Course.ToList()
+      };
+      return View(registrationStudentViewModel);
     }
     [HttpPost]
     [AllowAnonymous]
@@ -223,7 +227,7 @@ namespace Mitt_job_posting_portal.Controllers
         var result = await UserManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-          var student = new Student() { UserId = user.Id, Name = model.Name, BirthDate = model.BirthDate, PreviousEducation = model.PreviousEducation, PreviousEducationDetail = model.PreviousEducationDetail };
+          var student = new Student() { UserId = user.Id, Name = model.Name, BirthDate = model.BirthDate, PreviousEducation = model.PreviousEducation, PreviousEducationDetail = model.PreviousEducationDetail, CourseId = model.CourseId };
           _db.Student.Add(student);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
