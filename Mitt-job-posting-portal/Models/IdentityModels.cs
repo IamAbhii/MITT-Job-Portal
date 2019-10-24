@@ -104,10 +104,6 @@ namespace Mitt_job_posting_portal.Models
   {
     public int Id { get; set; }
     public string Name { get; set; }
-    public DateTime InternshipStartDate { get; set; }
-    public DateTime InternshipEndDate { get; set; }
-    public DateTime CourseStartDate { get; set; }
-    public DateTime CourseEndeDate { get; set; }
     public virtual ICollection<Student> Students { get; set; }
     public virtual ICollection<CourseInstructor> Instructors { get; set; }
 
