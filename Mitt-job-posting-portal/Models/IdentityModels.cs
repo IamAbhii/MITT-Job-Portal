@@ -42,6 +42,8 @@ namespace Mitt_job_posting_portal.Models
     public string UserId { get; set; }
     public virtual User User { get; set; }
     public string CompanyName { get; set; }
+    public string CompanyDetails { get; set; }
+    public string Companylinks { get; set; }
     public string EmailAdress { get; set; }
     public virtual ICollection<JobPost> JobPosts { get; set; }
 

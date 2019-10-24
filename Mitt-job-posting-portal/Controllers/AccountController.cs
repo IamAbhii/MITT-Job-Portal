@@ -245,7 +245,14 @@ namespace Mitt_job_posting_portal.Controllers
         var result = await UserManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-          var employer = new Employer() { UserId = user.Id, CompanyName = model.CompanyName, EmailAdress = model.EmailAdress };
+          var employer = new Employer()
+          {
+            UserId = user.Id,
+            CompanyName = model.CompanyName,
+            CompanyDetails = model.CompanyDetails,
+            Companylinks = model.Companylinks,
+            EmailAdress = model.EmailAdress
+          };
           _db.Employer.Add(employer);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
