@@ -59,6 +59,14 @@ namespace Mitt_job_posting_portal.Models
     public ICollection<CourseInstructor> Courses { get; set; }
 
   }
+  public class Admin
+  {
+    [Key, ForeignKey("User")]
+    public string UserId { get; set; }
+    public string Name { get; set; }
+    public virtual User User { get; set; }
+
+  }
 
   public class CourseInstructor
   {
@@ -113,6 +121,7 @@ namespace Mitt_job_posting_portal.Models
 
   public class ApplicationDbContext : IdentityDbContext<User>
   {
+    public DbSet<Admin> Admin { get; set; }
     public DbSet<Student> Student { get; set; }
     public DbSet<Employer> Employer { get; set; }
     public DbSet<Instructor> Instructor { get; set; }

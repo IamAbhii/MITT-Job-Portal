@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.Designer.cs">
       <DependentUpon>201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910261803599_AdminTableAdded.cs" />
+    <Compile Include="Migrations\201910261803599_AdminTableAdded.Designer.cs">
+      <DependentUpon>201910261803599_AdminTableAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -379,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.resx">
       <DependentUpon>201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910261803599_AdminTableAdded.resx">
+      <DependentUpon>201910261803599_AdminTableAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
