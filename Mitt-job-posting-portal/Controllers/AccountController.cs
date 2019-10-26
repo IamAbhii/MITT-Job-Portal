@@ -166,6 +166,36 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     [AllowAnonymous]
+    public ActionResult RegisterAdmin()
+    {
+      return View();
+    }
+    [HttpPost]
+    [AllowAnonymous]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> RegisterAdmin(RegisterAdminViewModel model)
+    {
+      if (ModelState.IsValid)
+      {
+        var user = new User { UserName = model.Email, Email = model.Email };
+        var result = await UserManager.CreateAsync(user, model.Password);
+        if (result.Succeeded)
+        {
+          var admin = new Admin() { UserId = user.Id, Name = model.Name };
+          _db.Admin.Add(admin);
+          _db.SaveChanges();
+          await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+          return RedirectToAction("Index", "Home");
+        }
+        AddErrors(result);
+      }
+
+      // If we got this far, something failed, redisplay form
+      return View(model);
+    }
+
+    [AllowAnonymous]
     public ActionResult RegisterInstructor()
     {
       return View();
