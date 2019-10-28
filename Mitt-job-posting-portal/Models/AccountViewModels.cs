@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -130,6 +132,7 @@ namespace Mitt_job_posting_portal.Models
 
   public class RegisterStudentViewModel
   {
+
     [Required]
     public string Name { get; set; }
 
@@ -155,8 +158,8 @@ namespace Mitt_job_posting_portal.Models
     [Display(Name = "Select role")]
 
     public int CourseId { get; set; }
-
     public List<Course> Courses { get; set; }
+
   }
 
   public class RegisterEmployerViewModel

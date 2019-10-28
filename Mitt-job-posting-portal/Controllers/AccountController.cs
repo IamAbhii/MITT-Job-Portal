@@ -242,10 +242,13 @@ namespace Mitt_job_posting_portal.Controllers
       if (ModelState.IsValid)
       {
         var user = new User { UserName = model.Email, Email = model.Email };
+
         var result = await UserManager.CreateAsync(user, model.Password);
+        
         if (result.Succeeded)
         {
           var student = new Student() { UserId = user.Id, Name = model.Name, BirthDate = model.BirthDate, PreviousEducation = model.PreviousEducation, PreviousEducationDetail = model.PreviousEducationDetail, CourseId = model.CourseId };
+          UserManager.AddToRole(user.Id, "Student");
           _db.Student.Add(student);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
