@@ -24,6 +24,7 @@ namespace Mitt_job_posting_portal.Helper
       {
         context.Course.AddOrUpdate(c => c.Id, new Course() { Name = course });
       }
+            context.SaveChanges();
     }
     public void SeedRoles(string[] roles)
     {

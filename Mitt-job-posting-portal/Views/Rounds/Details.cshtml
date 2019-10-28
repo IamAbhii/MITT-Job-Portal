@@ -1,0 +1,34 @@
+﻿@model Mitt_job_posting_portal.Models.Round
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Round</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InternshipEndtDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternshipEndtDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InternshipStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InternshipStartDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

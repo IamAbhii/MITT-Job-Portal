@@ -173,11 +173,14 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobApplicationsController.cs" />
+    <Compile Include="Controllers\JobPostsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoundsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AccountHelper.cs" />
+    <Compile Include="Helper\EmployerHelper.cs" />
     <Compile Include="Helper\SeedingHelper.cs" />
     <Compile Include="Migrations\201910221850390_Intial.cs" />
     <Compile Include="Migrations\201910221850390_Intial.Designer.cs">
@@ -363,6 +366,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Account\RegisterAdmin.cshtml" />
+    <Content Include="Views\JobPosts\Index.cshtml" />
+    <Content Include="Views\Rounds\Create.cshtml" />
+    <Content Include="Views\Rounds\Delete.cshtml" />
+    <Content Include="Views\Rounds\Details.cshtml" />
+    <Content Include="Views\Rounds\Edit.cshtml" />
+    <Content Include="Views\Rounds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Mitt_job_posting_portal.Models.JobPost>
+
+@{
+    ViewBag.Title = "Job Post";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Job Post", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employer.CompanyName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employer.CompanyName)
+            </td>
+            <td>
+                @Html.ActionLink("Apply", "Create", "JobApplications", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
