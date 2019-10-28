@@ -18,9 +18,6 @@ namespace Mitt_job_posting_portal.Controllers
             return View(JobPosts);
         }
 
-        public ActionResult Create()
-        {
 
-        }
     }
 }
