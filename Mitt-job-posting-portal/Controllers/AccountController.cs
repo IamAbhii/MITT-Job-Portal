@@ -198,7 +198,11 @@ namespace Mitt_job_posting_portal.Controllers
     [AllowAnonymous]
     public ActionResult RegisterInstructor()
     {
-      return View();
+            var viewModel = new RegisterInstructorViewModel
+            {
+                Courses = _db.Course.ToList(),
+            };
+      return View(viewModel);
     }
     [HttpPost]
     [AllowAnonymous]
@@ -212,6 +216,10 @@ namespace Mitt_job_posting_portal.Controllers
         if (result.Succeeded)
         {
           var instructor = new Instructor() { UserId = user.Id, Name = model.Name, Designation = model.Designation };
+          var InstructorCourses = new CourseInstructor() { CourseId = model.CourseId, InstructorId = user.Id };
+          
+          UserManager.AddToRole(user.Id, "Instructor");
+          _db.CourseInstructor.Add(InstructorCourses);
           _db.Instructor.Add(instructor);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

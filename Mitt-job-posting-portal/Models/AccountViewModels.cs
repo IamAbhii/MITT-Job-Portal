@@ -127,7 +127,9 @@ namespace Mitt_job_posting_portal.Models
     [Display(Name = "Confirm password")]
     [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
     public string ConfirmPassword { get; set; }
-  }
+    public int CourseId { get; set; }
+    public List<Course> Courses { get; set; }
+   }
 
 
   public class RegisterStudentViewModel
