@@ -198,10 +198,10 @@ namespace Mitt_job_posting_portal.Controllers
     [AllowAnonymous]
     public ActionResult RegisterInstructor()
     {
-            var viewModel = new RegisterInstructorViewModel
-            {
-                Courses = _db.Course.ToList(),
-            };
+      var viewModel = new RegisterInstructorViewModel
+      {
+        Courses = _db.Course.ToList(),
+      };
       return View(viewModel);
     }
     [HttpPost]
@@ -216,10 +216,10 @@ namespace Mitt_job_posting_portal.Controllers
         if (result.Succeeded)
         {
           var instructor = new Instructor() { UserId = user.Id, Name = model.Name, Designation = model.Designation };
-          var InstructorCourses = new CourseInstructor() { CourseId = model.CourseId, InstructorId = user.Id };
-          
+          //var InstructorCourses = new CourseInstructor() { CourseId = model.CourseId, InstructorId = user.Id };
+          instructor.Courses.Add(_db.Course.Find(model.CourseId));
           UserManager.AddToRole(user.Id, "Instructor");
-          _db.CourseInstructor.Add(InstructorCourses);
+          //_db.CourseInstructor.Add(InstructorCourses);
           _db.Instructor.Add(instructor);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -252,7 +252,7 @@ namespace Mitt_job_posting_portal.Controllers
         var user = new User { UserName = model.Email, Email = model.Email };
 
         var result = await UserManager.CreateAsync(user, model.Password);
-        
+
         if (result.Succeeded)
         {
           var student = new Student() { UserId = user.Id, Name = model.Name, BirthDate = model.BirthDate, PreviousEducation = model.PreviousEducation, PreviousEducationDetail = model.PreviousEducationDetail, CourseId = model.CourseId };

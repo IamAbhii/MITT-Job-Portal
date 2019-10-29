@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Mitt_job_posting_portal.Models;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 
@@ -22,9 +21,12 @@ namespace Mitt_job_posting_portal.Helper
     {
       foreach (string course in courses)
       {
-        context.Course.AddOrUpdate(c => c.Id, new Course() { Name = course });
+        if (context.Course.Where(c => c.Name == course).ToList().Count == 0)
+        {
+          context.Course.AddOrUpdate(c => c.Id, new Course() { Name = course });
+        }
       }
-            context.SaveChanges();
+      context.SaveChanges();
     }
     public void SeedRoles(string[] roles)
     {
@@ -77,13 +79,7 @@ namespace Mitt_job_posting_portal.Helper
           context.Instructor.AddOrUpdate(new Instructor()
           {
             Name = name,
-            Courses = new List<CourseInstructor>()
-              {
-                new CourseInstructor()
-                {
-                  Course = context.Course.Where(c=>c.Name==courseName).FirstOrDefault(), InstructorId = user.Id
-                }
-              },
+            Courses = context.Course.Where(c => c.Name == courseName).ToList(),
             User = user
           });
         }

@@ -56,7 +56,7 @@ namespace Mitt_job_posting_portal.Models
     public string Name { get; set; }
     public string Designation { get; set; }
     public virtual User User { get; set; }
-    public ICollection<CourseInstructor> Courses { get; set; }
+    public virtual ICollection<Course> Courses { get; set; }
 
   }
   public class Admin
@@ -65,27 +65,14 @@ namespace Mitt_job_posting_portal.Models
     public string UserId { get; set; }
     public string Name { get; set; }
     public virtual User User { get; set; }
-
-  }
-
-  public class CourseInstructor
-  {
-    [Key, Column(Order = 0)]
-    public string InstructorId { get; set; }
-    public virtual Instructor Instructor { get; set; }
-    [Key, Column(Order = 1)]
-    public int CourseId { get; set; }
-    public virtual Course Course { get; set; }
-
   }
 
   public class JobApplication
   {
-
     public int Id { get; set; }
     public string Title { get; set; }
     public string Skills { get; set; }
-    public virtual ICollection<User> Students { get; set; }
+    public ICollection<Student> Students { get; set; }
     public int JobPostId { get; set; }
     public virtual JobPost JobPosts { get; set; }
   }
@@ -115,7 +102,7 @@ namespace Mitt_job_posting_portal.Models
     public int Id { get; set; }
     public string Name { get; set; }
     public virtual ICollection<Student> Students { get; set; }
-    public virtual ICollection<CourseInstructor> Instructors { get; set; }
+    public virtual ICollection<Instructor> Instructors { get; set; }
 
   }
 
@@ -127,7 +114,6 @@ namespace Mitt_job_posting_portal.Models
     public DbSet<Instructor> Instructor { get; set; }
     public DbSet<JobPost> JobPost { get; set; }
     public DbSet<JobApplication> JobApplication { get; set; }
-    public DbSet<CourseInstructor> CourseInstructor { get; set; }
     public DbSet<Round> Round { get; set; }
     public DbSet<Course> Course { get; set; }
     public ApplicationDbContext()
