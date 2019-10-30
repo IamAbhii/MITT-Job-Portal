@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Mitt_job_posting_portal.Models.Student>
+
+@{
+    ViewBag.Title = "GetAllStudent";
+}
+
+<h2>List of all student.</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousEducation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousEducationDetail)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousEducation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousEducationDetail)
+        </td>
+    </tr>
+}
+
+</table>

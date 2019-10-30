@@ -172,18 +172,23 @@
     <Compile Include="Bootstrap Html Helpers\HelperMethods.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\JobApplicationsController.cs" />
     <Compile Include="Controllers\JobPostsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoundsController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AccountHelper.cs" />
     <Compile Include="Helper\CourseHelper.cs" />
     <Compile Include="Helper\EmployerHelper.cs" />
+    <Compile Include="Helper\InstructorHelper.cs" />
     <Compile Include="Helper\SeedingHelper.cs" />
+    <Compile Include="Helper\StudentHelper.cs" />
     <Compile Include="Migrations\201910221850390_Intial.cs" />
     <Compile Include="Migrations\201910221850390_Intial.Designer.cs">
       <DependentUpon>201910221850390_Intial.cs</DependentUpon>
@@ -219,10 +224,6 @@
     <Compile Include="Migrations\201910291752021_UserExtraIdFix.cs" />
     <Compile Include="Migrations\201910291752021_UserExtraIdFix.Designer.cs">
       <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910300335055_AddedJoppostController.cs" />
-    <Compile Include="Migrations\201910300335055_AddedJoppostController.Designer.cs">
-      <DependentUpon>201910300335055_AddedJoppostController.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201910300341542_AddedJoppostController1.cs" />
     <Compile Include="Migrations\201910300341542_AddedJoppostController1.Designer.cs">
@@ -405,6 +406,9 @@
     <Content Include="Views\Home\StudentDashboard.cshtml" />
     <Content Include="Views\Home\InstructorDashboard.cshtml" />
     <Content Include="Views\Home\EmployeeDashboard.cshtml" />
+    <Content Include="Views\Employer\GetAllEmployer.cshtml" />
+    <Content Include="Views\Student\GetAllStudent.cshtml" />
+    <Content Include="Views\Instructor\GetAllInstructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -439,9 +443,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910291752021_UserExtraIdFix.resx">
       <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910300335055_AddedJoppostController.resx">
-      <DependentUpon>201910300335055_AddedJoppostController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910300341542_AddedJoppostController1.resx">
       <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>

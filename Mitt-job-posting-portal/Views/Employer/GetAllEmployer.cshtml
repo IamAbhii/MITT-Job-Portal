@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Mitt_job_posting_portal.Models.Employer>
+
+@{
+    ViewBag.Title = "GetAllEmployee";
+}
+
+<h2>List of all employer</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Companylinks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAdress)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Companylinks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAdress)
+        </td>
+    </tr>
+}
+
+</table>

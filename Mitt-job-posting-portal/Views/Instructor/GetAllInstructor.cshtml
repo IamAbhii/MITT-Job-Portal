@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Mitt_job_posting_portal.Models.Instructor>
+
+@{
+    ViewBag.Title = "GetAllInstructor";
+}
+
+<h2>List of all instructors</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+          Teaching
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+          <ul>
+            @foreach (var course in item.Courses)
+            {
+              <li>@course.Name</li>
+            }
+          </ul>
+        </td>
+    </tr>
+}
+
+</table>
