@@ -46,6 +46,7 @@ namespace Mitt_job_posting_portal.Controllers
         public ActionResult Create()
         {
             ViewBag.RoundId = new SelectList(db.Round, "Id", "IntakeTitle");
+            ViewBag.CourseId = new SelectList(db.Course, "Id", "Name");
             return View();
         }
 

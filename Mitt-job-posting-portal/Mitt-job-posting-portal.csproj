@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.Designer.cs">
       <DependentUpon>201910301534020_AddedNewPropertiesToJobpost1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910301947220_JobPostModified.cs" />
+    <Compile Include="Migrations\201910301947220_JobPostModified.Designer.cs">
+      <DependentUpon>201910301947220_JobPostModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -460,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.resx">
       <DependentUpon>201910301534020_AddedNewPropertiesToJobpost1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301947220_JobPostModified.resx">
+      <DependentUpon>201910301947220_JobPostModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

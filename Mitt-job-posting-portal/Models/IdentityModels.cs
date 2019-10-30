@@ -93,6 +93,8 @@ namespace Mitt_job_posting_portal.Models
     public string Location { get; set; }
     public string EmployerId { get; set; }
     public virtual Employer Employer { get; set; }
+    public int CourseId { get; set; }
+    public Course Course { get; set; }
   }
 
   public class Round
@@ -116,6 +118,7 @@ namespace Mitt_job_posting_portal.Models
     public string Name { get; set; }
     public virtual ICollection<Student> Students { get; set; }
     public virtual ICollection<Instructor> Instructors { get; set; }
+    public virtual ICollection<JobPost> JobPosts { get; set; }
 
   }
 
