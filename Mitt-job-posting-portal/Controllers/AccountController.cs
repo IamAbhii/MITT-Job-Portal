@@ -594,6 +594,8 @@ namespace Mitt_job_posting_portal.Controllers
       {
         return Redirect(returnUrl);
       }
+      //provide navigation to correct dashboard.
+      var a = User.Identity.GetUserId();
       return RedirectToAction("Index", "Home");
     }
 
