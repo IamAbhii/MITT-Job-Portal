@@ -3,5 +3,33 @@
     ViewBag.Title = "AdminDashboard";
 }
 
-<h2>AdminDashboard</h2>
+<h2></h2>
+<div class="row mt-4">
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("View all Employer",null,null,new { @class="btn btn-primary btn-lg"})
+  </div>
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("View all Job Post", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("View all Student", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("View all Instructor", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("Add new Admin", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("Add new Employer", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("Add new Instructor", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col-md-3 text-center">
+    @Html.ActionLink("Add new Student", null, null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+</div>
 
