@@ -94,6 +94,7 @@ namespace Mitt_job_posting_portal.Models
     public string IntakeTitle { get; set; }
     public DateTime InternshipStartDate { get; set; }
     public DateTime InternshipEndDate { get; set; }
+    
     public virtual ICollection<JobPost> JobPosts { get; set; }
 
   }
