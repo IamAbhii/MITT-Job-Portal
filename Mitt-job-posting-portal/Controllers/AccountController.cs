@@ -215,11 +215,9 @@ namespace Mitt_job_posting_portal.Controllers
         var result = await UserManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-          var instructor = new Instructor() { UserId = user.Id, Name = model.Name, Designation = model.Designation };
-          //var InstructorCourses = new CourseInstructor() { CourseId = model.CourseId, InstructorId = user.Id };
+          var instructor = new Instructor() { UserId = user.Id, Name = model.Name, Designation = model.Designation };        
           instructor.Courses.Add(_db.Course.Find(model.CourseId));
           UserManager.AddToRole(user.Id, "Instructor");
-          //_db.CourseInstructor.Add(InstructorCourses);
           _db.Instructor.Add(instructor);
           _db.SaveChanges();
           await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
