@@ -173,7 +173,6 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobApplicationsController.cs" />
-    <Compile Include="Controllers\JobPostsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoundsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -217,6 +216,14 @@
     <Compile Include="Migrations\201910291752021_UserExtraIdFix.cs" />
     <Compile Include="Migrations\201910291752021_UserExtraIdFix.Designer.cs">
       <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910300128319_AddedTitlePropertyInRounds.cs" />
+    <Compile Include="Migrations\201910300128319_AddedTitlePropertyInRounds.Designer.cs">
+      <DependentUpon>201910300128319_AddedTitlePropertyInRounds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910300137351_AddedTitlePropertyInRounds1.cs" />
+    <Compile Include="Migrations\201910300137351_AddedTitlePropertyInRounds1.Designer.cs">
+      <DependentUpon>201910300137351_AddedTitlePropertyInRounds1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -418,6 +425,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910291752021_UserExtraIdFix.resx">
       <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910300128319_AddedTitlePropertyInRounds.resx">
+      <DependentUpon>201910300128319_AddedTitlePropertyInRounds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910300137351_AddedTitlePropertyInRounds1.resx">
+      <DependentUpon>201910300137351_AddedTitlePropertyInRounds1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

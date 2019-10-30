@@ -91,8 +91,9 @@ namespace Mitt_job_posting_portal.Models
   public class Round
   {
     public int Id { get; set; }
-    public DateTime InternshipEndtDate { get; set; }
+    public string IntakeTitle { get; set; }
     public DateTime InternshipStartDate { get; set; }
+    public DateTime InternshipEndDate { get; set; }
     public virtual ICollection<JobPost> JobPosts { get; set; }
 
   }
