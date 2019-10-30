@@ -409,6 +409,14 @@
     <Content Include="Views\Home\StudentDashboard.cshtml" />
     <Content Include="Views\Home\InstructorDashboard.cshtml" />
     <Content Include="Views\Home\EmployeeDashboard.cshtml" />
+    <Content Include="Views\Employer\GetAllEmployer.cshtml" />
+    <Content Include="Views\Instructor\GetAllInstructor.cshtml" />
+    <Content Include="Views\JobPosts\Create.cshtml" />
+    <Content Include="Views\JobPosts\Delete.cshtml" />
+    <Content Include="Views\JobPosts\Details.cshtml" />
+    <Content Include="Views\JobPosts\Edit.cshtml" />
+    <Content Include="Views\JobPosts\Index.cshtml" />
+    <Content Include="Views\Student\GetAllStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
