@@ -88,7 +88,10 @@ namespace Mitt_job_posting_portal.Models
     public virtual ICollection<JobApplication> JobApplications { get; set; }
     public int RoundId { get; set; }
     public virtual Round Rounds { get; set; }
-    public int EmployerId { get; set; }
+    public string Skills { get; set; }
+    public string Description { get; set; }
+    public string Location { get; set; }
+    public string EmployerId { get; set; }
     public virtual Employer Employer { get; set; }
   }
 

@@ -229,6 +229,14 @@
     <Compile Include="Migrations\201910300341542_AddedJoppostController1.Designer.cs">
       <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910301448285_AddedNewPropertiesToJobpost.cs" />
+    <Compile Include="Migrations\201910301448285_AddedNewPropertiesToJobpost.Designer.cs">
+      <DependentUpon>201910301448285_AddedNewPropertiesToJobpost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.cs" />
+    <Compile Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.Designer.cs">
+      <DependentUpon>201910301534020_AddedNewPropertiesToJobpost1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -392,11 +400,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Account\RegisterAdmin.cshtml" />
-    <Content Include="Views\JobPosts\Index.cshtml" />
-    <Content Include="Views\JobPosts\Create.cshtml" />
-    <Content Include="Views\JobPosts\Delete.cshtml" />
-    <Content Include="Views\JobPosts\Details.cshtml" />
-    <Content Include="Views\JobPosts\Edit.cshtml" />
     <Content Include="Views\Rounds\Create.cshtml" />
     <Content Include="Views\Rounds\Delete.cshtml" />
     <Content Include="Views\Rounds\Details.cshtml" />
@@ -406,9 +409,6 @@
     <Content Include="Views\Home\StudentDashboard.cshtml" />
     <Content Include="Views\Home\InstructorDashboard.cshtml" />
     <Content Include="Views\Home\EmployeeDashboard.cshtml" />
-    <Content Include="Views\Employer\GetAllEmployer.cshtml" />
-    <Content Include="Views\Student\GetAllStudent.cshtml" />
-    <Content Include="Views\Instructor\GetAllInstructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +446,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910300341542_AddedJoppostController1.resx">
       <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301448285_AddedNewPropertiesToJobpost.resx">
+      <DependentUpon>201910301448285_AddedNewPropertiesToJobpost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.resx">
+      <DependentUpon>201910301534020_AddedNewPropertiesToJobpost1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

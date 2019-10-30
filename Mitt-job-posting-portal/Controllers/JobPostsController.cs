@@ -7,13 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Mitt_job_posting_portal.Models;
+using Mitt_job_posting_portal.Helper;
+using Microsoft.AspNet.Identity;
 
 namespace Mitt_job_posting_portal.Controllers
 {
     public class JobPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        AccountHelper userManager;
+        public JobPostsController()
+        {
+            this.userManager=new AccountHelper(db);
+        }
         // GET: JobPosts
         public ActionResult Index()
         {
@@ -46,12 +52,17 @@ namespace Mitt_job_posting_portal.Controllers
         // POST: JobPosts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Employer Validation only
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,RoundId,EmployerId")] JobPost jobPost)
+        public ActionResult Create(JobPost jobPost)
         {
+            AccountHelper userManager = new AccountHelper(db);
             if (ModelState.IsValid)
             {
+                var UserId = User.Identity.GetUserId();
+                var user = db.Employer.Find(UserId);
+                jobPost.Employer = user; 
                 db.JobPost.Add(jobPost);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,7 +93,7 @@ namespace Mitt_job_posting_portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,RoundId,EmployerId")] JobPost jobPost)
+        public ActionResult Edit([Bind(Include = "Id,Title,RoundId,EmployerId,Skills,Description,Location")] JobPost jobPost)
         {
             if (ModelState.IsValid)
             {
