@@ -17,10 +17,10 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.InternshipEndtDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IntakeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.InternshipEndtDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.InternshipEndtDate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.IntakeTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IntakeTitle, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -29,6 +29,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.InternshipStartDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.InternshipStartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InternshipEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InternshipEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InternshipEndDate, "", new { @class = "text-danger" })
             </div>
         </div>
 

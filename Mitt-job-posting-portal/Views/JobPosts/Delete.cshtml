@@ -1,4 +1,4 @@
-﻿@model Mitt_job_posting_portal.Models.Round
+﻿@model Mitt_job_posting_portal.Models.JobPost
 
 @{
     ViewBag.Title = "Delete";
@@ -8,31 +8,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Round</h4>
+    <h4>JobPost</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IntakeTitle)
+            @Html.DisplayNameFor(model => model.Rounds.IntakeTitle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IntakeTitle)
+            @Html.DisplayFor(model => model.Rounds.IntakeTitle)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InternshipStartDate)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InternshipStartDate)
+            @Html.DisplayFor(model => model.Title)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InternshipEndDate)
+            @Html.DisplayNameFor(model => model.EmployerId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InternshipEndDate)
+            @Html.DisplayFor(model => model.EmployerId)
         </dd>
 
     </dl>
