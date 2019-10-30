@@ -532,8 +532,6 @@ namespace Mitt_job_posting_portal.Controllers
 
     //
     // POST: /Account/LogOff
-    [HttpPost]
-    [ValidateAntiForgeryToken]
     public ActionResult LogOff()
     {
       AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -594,8 +592,7 @@ namespace Mitt_job_posting_portal.Controllers
       {
         return Redirect(returnUrl);
       }
-      //provide navigation to correct dashboard.
-      var a = User.Identity.GetUserId();
+
       return RedirectToAction("Index", "Home");
     }
 

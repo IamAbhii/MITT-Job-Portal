@@ -17,22 +17,25 @@ namespace Mitt_job_posting_portal.Controllers
     public ActionResult Index()
     {
       var userId = User.Identity.GetUserId();
-      string userRole = accountHelper.GetUserRole(userId);
-      if (userRole == "Admin")
+      if (userId != null)
       {
-        return RedirectToAction("AdminDashboard");
-      }
-      else if (userRole == "Student")
-      {
-        return RedirectToAction("StudentDashboard");
-      }
-      else if (userRole == "Instructor")
-      {
-        return RedirectToAction("InstructorDashboard");
-      }
-      else
-      {
-        return RedirectToAction("EmployeeDashboard");
+        string userRole = accountHelper.GetUserRole(userId);
+        if (userRole == "Admin")
+        {
+          return RedirectToAction("AdminDashboard");
+        }
+        else if (userRole == "Student")
+        {
+          return RedirectToAction("StudentDashboard");
+        }
+        else if (userRole == "Instructor")
+        {
+          return RedirectToAction("InstructorDashboard");
+        }
+        else
+        {
+          return RedirectToAction("EmployeeDashboard");
+        }
       }
       return View();
     }
