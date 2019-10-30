@@ -46,7 +46,7 @@ namespace Mitt_job_posting_portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,InternshipEndtDate,InternshipStartDate")] Round round)
+        public ActionResult Create([Bind(Include = "Id,IntakeTitle,InternshipStartDate,InternshipEndDate")] Round round)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Mitt_job_posting_portal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,InternshipEndtDate,InternshipStartDate")] Round round)
+        public ActionResult Edit([Bind(Include = "Id,IntakeTitle,InternshipStartDate,InternshipEndDate")] Round round)
         {
             if (ModelState.IsValid)
             {

@@ -1,0 +1,42 @@
+﻿@model Mitt_job_posting_portal.Models.JobPost
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobPost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rounds.IntakeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rounds.IntakeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployerId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

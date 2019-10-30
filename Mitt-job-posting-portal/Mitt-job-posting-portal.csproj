@@ -220,6 +220,14 @@
     <Compile Include="Migrations\201910291752021_UserExtraIdFix.Designer.cs">
       <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910300335055_AddedJoppostController.cs" />
+    <Compile Include="Migrations\201910300335055_AddedJoppostController.Designer.cs">
+      <DependentUpon>201910300335055_AddedJoppostController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910300341542_AddedJoppostController1.cs" />
+    <Compile Include="Migrations\201910300341542_AddedJoppostController1.Designer.cs">
+      <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -384,6 +392,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Account\RegisterAdmin.cshtml" />
     <Content Include="Views\JobPosts\Index.cshtml" />
+    <Content Include="Views\JobPosts\Create.cshtml" />
+    <Content Include="Views\JobPosts\Delete.cshtml" />
+    <Content Include="Views\JobPosts\Details.cshtml" />
+    <Content Include="Views\JobPosts\Edit.cshtml" />
     <Content Include="Views\Rounds\Create.cshtml" />
     <Content Include="Views\Rounds\Delete.cshtml" />
     <Content Include="Views\Rounds\Details.cshtml" />
@@ -427,6 +439,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910291752021_UserExtraIdFix.resx">
       <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910300335055_AddedJoppostController.resx">
+      <DependentUpon>201910300335055_AddedJoppostController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910300341542_AddedJoppostController1.resx">
+      <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
