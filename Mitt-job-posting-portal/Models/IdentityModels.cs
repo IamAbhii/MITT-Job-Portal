@@ -51,6 +51,10 @@ namespace Mitt_job_posting_portal.Models
 
   public class Instructor
   {
+    public Instructor()
+    {
+      Courses = new HashSet<Course>();
+    }
     [Key, ForeignKey("User")]
     public string UserId { get; set; }
     public string Name { get; set; }
@@ -99,6 +103,10 @@ namespace Mitt_job_posting_portal.Models
 
   public class Course
   {
+    public Course()
+    {
+      Instructors = new HashSet<Instructor>();
+    }
     public int Id { get; set; }
     public string Name { get; set; }
     public virtual ICollection<Student> Students { get; set; }

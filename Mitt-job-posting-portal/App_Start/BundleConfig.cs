@@ -31,6 +31,13 @@ namespace Mitt_job_posting_portal
       //css  
       bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
              "~/Content/themes/base/jquery-ui.css"));
+
+      //chosen
+      bundles.Add(new StyleBundle("~/Content/chosen").Include(
+             "~/Content/chosen/chosen.min.css"));
+
+      bundles.Add(new ScriptBundle("~/bundles/chosen").Include(
+          "~/Scripts/chosen/chosen.jquery.min.js"));
     }
   }
 }

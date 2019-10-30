@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using CompareAttribute = System.ComponentModel.DataAnnotations.CompareAttribute;
 
 namespace Mitt_job_posting_portal.Models
 {
@@ -125,11 +125,14 @@ namespace Mitt_job_posting_portal.Models
 
     [DataType(DataType.Password)]
     [Display(Name = "Confirm password")]
-    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
     public string ConfirmPassword { get; set; }
-    public int CourseId { get; set; }
-    public List<Course> Courses { get; set; }
-   }
+
+    public IEnumerable<SelectListItem> Courses { get; set; }
+    [Required(ErrorMessage = "*Please select course.")]
+
+    public int[] SelectedCourseId { get; set; }
+  }
 
 
   public class RegisterStudentViewModel

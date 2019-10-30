@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Mitt_job_posting_portal.Helper;
 using Mitt_job_posting_portal.Models;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,10 +16,12 @@ namespace Mitt_job_posting_portal.Controllers
     private ApplicationSignInManager _signInManager;
     private ApplicationUserManager _userManager;
     public ApplicationDbContext _db;
+    CourseHelper courseHelper;
 
     public AccountController()
     {
       _db = new ApplicationDbContext();
+      courseHelper = new CourseHelper(_db);
     }
 
     public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -198,9 +201,15 @@ namespace Mitt_job_posting_portal.Controllers
     [AllowAnonymous]
     public ActionResult RegisterInstructor()
     {
+
       var viewModel = new RegisterInstructorViewModel
       {
-        Courses = _db.Course.ToList(),
+        Courses = _db.Course
+        .Select(c => new SelectListItem
+        {
+          Text = c.Name,
+          Value = c.Id.ToString(),
+        })
       };
       return View(viewModel);
     }
@@ -215,8 +224,12 @@ namespace Mitt_job_posting_portal.Controllers
         var result = await UserManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-          var instructor = new Instructor() { UserId = user.Id, Name = model.Name, Designation = model.Designation };        
-          instructor.Courses.Add(_db.Course.Find(model.CourseId));
+          var instructor = new Instructor() { UserId = user.Id, Name = model.Name, Designation = model.Designation };
+          var selectedCourses = courseHelper.GetCourses(model.SelectedCourseId);
+          foreach (var course in selectedCourses)
+          {
+            instructor.Courses.Add(course);
+          }
           UserManager.AddToRole(user.Id, "Instructor");
           _db.Instructor.Add(instructor);
           _db.SaveChanges();
