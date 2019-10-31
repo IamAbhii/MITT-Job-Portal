@@ -5,6 +5,7 @@ using Mitt_job_posting_portal.Models.ViewModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Mitt_job_posting_portal.Controllers
@@ -24,7 +25,18 @@ namespace Mitt_job_posting_portal.Controllers
       var jobApplication = db.JobApplication.Include(j => j.JobPosts);
       return View(jobApplication.ToList());
     }
+    public ActionResult ViewAllJobApplication(int id)
+    {
+      var jobApplication = db.JobApplication.Where(application => application.JobPostId == id).Include(j => j.JobPosts);
+      return View("Index", jobApplication.ToList());
+    }
 
+    public ActionResult Download(int id)
+    {
+      var path = db.JobApplication.Find(id).FilePath.ToString();
+      var mime = MimeMapping.GetMimeMapping(path);
+      return File(path, mime);
+    }
     // GET: JobApplications/Details/5
     public ActionResult Details(int? id)
     {
