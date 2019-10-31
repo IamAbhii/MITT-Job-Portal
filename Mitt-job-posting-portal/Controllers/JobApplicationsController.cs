@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Mitt_job_posting_portal.Helper;
 using Mitt_job_posting_portal.Models;
 using Mitt_job_posting_portal.Models.ViewModel;
 using System.Data.Entity;
@@ -11,6 +12,11 @@ namespace Mitt_job_posting_portal.Controllers
   public class JobApplicationsController : Controller
   {
     private ApplicationDbContext db = new ApplicationDbContext();
+    AttachmentHelper attachmentHelper;
+    public JobApplicationsController()
+    {
+      attachmentHelper = new AttachmentHelper();
+    }
 
     // GET: JobApplications
     public ActionResult Index()
@@ -49,12 +55,20 @@ namespace Mitt_job_posting_portal.Controllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create([Bind(Include = "Id,Skills,Message,FilePath,JobPostId")] JobApplication jobApplication)
+    public ActionResult Create(ApplicationViewModel jobApplication)
     {
       if (ModelState.IsValid)
       {
-        jobApplication.StudentId = User.Identity.GetUserId();
-        db.JobApplication.Add(jobApplication);
+        var filePath = attachmentHelper.saveFile(jobApplication.File);
+        var jobApplicationToAdd = new JobApplication()
+        {
+          StudentId = User.Identity.GetUserId(),
+          FilePath = filePath,
+          JobPostId = jobApplication.JobPostId,
+          Message = jobApplication.Message,
+          Skills = jobApplication.Skills,
+        };
+        db.JobApplication.Add(jobApplicationToAdd);
         db.SaveChanges();
         return RedirectToAction("Index");
       }
