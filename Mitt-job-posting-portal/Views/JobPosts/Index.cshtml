@@ -1,71 +1,47 @@
 ﻿@model IEnumerable<Mitt_job_posting_portal.Models.JobPost>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-  <tr>
-    <th>
-      @Html.DisplayNameFor(model => model.Rounds.IntakeTitle)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Title)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Employer.CompanyName)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Skills)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Description)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Location)
-    </th>
-    <th>
-      @Html.DisplayNameFor(model => model.Course.Name)
-    </th>
-    <th></th>
-  </tr>
-
-@foreach (var item in Model) {
-<tr>
-  <td>
-    @Html.DisplayFor(modelItem => item.Rounds.IntakeTitle)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.Title)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.Employer.CompanyName)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.Skills)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.Description)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.Location)
-  </td>
-  <td>
-    @Html.DisplayFor(modelItem => item.Course.Name)
-  </td>
-  <td>
-    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-    @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
-    @Html.ActionLink("Apply", "Create", "JobApplications", new { id = item.Id }, null) |
-    @Html.ActionLink("View all application", "ViewAllJobApplication", "JobApplications", new { id = item.Id }, null)
-  </td>
-</tr>
+@foreach (var item in Model)
+{
+  <div class="card">
+    <h5 class="card-header">@Html.DisplayFor(modelItem => item.Title)</h5>
+    <div class="card-body">
+      <h5 class="card-title">@Html.DisplayFor(modelItem => item.Employer.CompanyName)</h5>
+      <h6 class="card-title">@Html.DisplayFor(modelItem => item.Employer.CompanyDetails)</h6>
+      <hr />
+      <h6 class="card-text">Round: </h6>
+      <p class="card-text">@Html.DisplayFor(modelItem => item.Rounds.IntakeTitle) From: @Html.DisplayFor(modelItem => item.Rounds.InternshipStartDate, "{0:d MMM yyyy}") To: @Html.DisplayFor(modelItem => item.Rounds.InternshipEndDate, "{0:d MMM yyyy}")</p>
+      <h6 class="card-text">Required Skills: </h6>
+      <p class="card-text">@Html.DisplayFor(modelItem => item.Skills)</p>
+      <h6 class="card-text">Description: </h6>
+      <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+      <h6 class="card-text">Location: </h6>
+      <p class="card-text">@Html.DisplayFor(modelItem => item.Location)</p>
+      <hr />
+      @if (User.IsInRole("Student"))
+      {
+        @Html.ActionLink("Apply", "Create", "JobApplications", new { id = item.Id }, new { @class = "btn btn-primary" })
+      }
+      @if (User.IsInRole("Employer"))
+      {
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+      }
+      @if (User.IsInRole("Employer") || User.IsInRole("Admin"))
+      {
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-outline-danger" })
+      }
+      @if (User.IsInRole("Employer") || User.IsInRole("Admin") || User.IsInRole("Instructor"))
+      {
+        @Html.ActionLink("View all application", "ViewAllJobApplication", "JobApplications", new { id = item.Id }, new { @class = "btn btn-primary" })
+      }
+    </div>
+  </div>
 }
-
-</table>

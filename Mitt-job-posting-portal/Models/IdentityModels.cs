@@ -106,7 +106,9 @@ namespace Mitt_job_posting_portal.Models
   {
     public int Id { get; set; }
     public string IntakeTitle { get; set; }
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateTime InternshipStartDate { get; set; }
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateTime InternshipEndDate { get; set; }
     public virtual ICollection<JobPost> JobPosts { get; set; }
 
