@@ -24,5 +24,9 @@ namespace Mitt_job_posting_portal.Helper
     {
       return db.Student.Find(userId);
     }
+    public Instructor GetInstructor(string userId)
+    {
+      return db.Instructor.Find(userId);
+    }
   }
 }
