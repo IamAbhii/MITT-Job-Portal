@@ -59,7 +59,7 @@ namespace Mitt_job_posting_portal.Controllers
       {
         var UserId = User.Identity.GetUserId();
         var user = db.Employer.Find(UserId);
-        //jobPost.Employer = user; 
+        jobPost.Employer = user;
         db.JobPost.Add(jobPost);
         db.SaveChanges();
         return RedirectToAction("Index");
@@ -82,6 +82,7 @@ namespace Mitt_job_posting_portal.Controllers
         return HttpNotFound();
       }
       ViewBag.RoundId = new SelectList(db.Round, "Id", "IntakeTitle", jobPost.RoundId);
+      ViewBag.CourseId = new SelectList(db.Course, "Id", "Name", jobPost.CourseId);
       return View(jobPost);
     }
 
@@ -90,11 +91,19 @@ namespace Mitt_job_posting_portal.Controllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit([Bind(Include = "Id,Title,RoundId,EmployerId,Skills,Description,Location")] JobPost jobPost)
+    public ActionResult Edit(JobPost jobPost)
     {
       if (ModelState.IsValid)
       {
-        db.Entry(jobPost).State = EntityState.Modified;
+        var jobpostInDb = db.JobPost.Find(jobPost.Id);
+        jobpostInDb.Title = jobPost.Title;
+        jobpostInDb.Location = jobPost.Location;
+        jobpostInDb.Description = jobPost.Description;
+        jobpostInDb.RoundId = jobPost.RoundId;
+        jobpostInDb.CourseId = jobPost.CourseId;
+        jobpostInDb.Skills = jobPost.Skills;
+
+        //db.Entry(jobPost).State = EntityState.Modified;
         db.SaveChanges();
         return RedirectToAction("Index");
       }
