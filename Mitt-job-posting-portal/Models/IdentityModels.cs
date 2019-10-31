@@ -95,7 +95,7 @@ namespace Mitt_job_posting_portal.Models
     public string EmployerId { get; set; }
     public virtual Employer Employer { get; set; }
     public int CourseId { get; set; }
-    public Course Course { get; set; }
+    public virtual Course Course { get; set; }
   }
 
   public class Round
