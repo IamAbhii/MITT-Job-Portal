@@ -4,14 +4,11 @@
   ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>List of jobposts: </h2>
 
-<p>
-  @Html.ActionLink("Create New", "Create")
-</p>
 @foreach (var item in Model)
 {
-  <div class="card">
+  <div class="card m-2">
     <h5 class="card-header">@Html.DisplayFor(modelItem => item.Title)</h5>
     <div class="card-body">
       <h5 class="card-title">@Html.DisplayFor(modelItem => item.Employer.CompanyName)</h5>
