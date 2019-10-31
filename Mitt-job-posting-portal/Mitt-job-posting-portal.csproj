@@ -412,7 +412,7 @@
     <Content Include="Views\Home\AdminDashboard.cshtml" />
     <Content Include="Views\Home\StudentDashboard.cshtml" />
     <Content Include="Views\Home\InstructorDashboard.cshtml" />
-    <Content Include="Views\Home\EmployeeDashboard.cshtml" />
+    <Content Include="Views\Home\EmployerDashboard.cshtml" />
     <Content Include="Views\Employer\GetAllEmployer.cshtml" />
     <Content Include="Views\Instructor\GetAllInstructor.cshtml" />
     <Content Include="Views\JobPosts\Create.cshtml" />

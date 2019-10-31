@@ -34,7 +34,7 @@ namespace Mitt_job_posting_portal.Controllers
         }
         else
         {
-          return RedirectToAction("EmployeeDashboard");
+          return RedirectToAction("EmployerDashboard");
         }
       }
       return View();
