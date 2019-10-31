@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Mitt_job_posting_portal.Helper;
 using Mitt_job_posting_portal.Models;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -12,15 +13,39 @@ namespace Mitt_job_posting_portal.Controllers
   {
     private ApplicationDbContext db = new ApplicationDbContext();
     AccountHelper userManager;
+    JobPostHelper jobPostHelper;
     public JobPostsController()
     {
       this.userManager = new AccountHelper(db);
+      this.jobPostHelper = new JobPostHelper(db);
     }
     // GET: JobPosts
     public ActionResult Index()
     {
-      var jobPost = db.JobPost.Include(j => j.Rounds);
-      return View(jobPost.ToList());
+      var userId = User.Identity.GetUserId();
+      var userRole = userManager.GetUserRole(userId);
+      List<JobPost> jobPosts = new List<JobPost>();
+      if (userRole == "Employer")
+      {
+        jobPosts = db.JobPost.Where(jp => jp.EmployerId == userId).Include(j => j.Rounds).ToList();
+        return View(jobPosts);
+      }
+      else if (userRole == "Student")
+      {
+        var user = userManager.GetStudent(userId);
+        jobPosts = db.JobPost.Where(jp => jp.CourseId == user.CourseId).Include(j => j.Rounds).ToList();
+        return View(jobPosts);
+      }
+      else if (userRole == "Instructor")
+      {
+        jobPosts = jobPostHelper.GetAllJobPostForInstructor(userId);
+        return View(jobPosts);
+      }
+      else
+      {
+        jobPosts = db.JobPost.ToList();
+        return View(jobPosts);
+      }
     }
 
     // GET: JobPosts/Details/5

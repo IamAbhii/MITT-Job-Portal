@@ -45,7 +45,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
     public ActionResult StudentDashboard()
     {
-      return View();
+      return RedirectToAction("Index", "JobPosts");
     }
     public ActionResult InstructorDashboard()
     {

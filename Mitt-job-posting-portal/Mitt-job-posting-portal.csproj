@@ -187,6 +187,7 @@
     <Compile Include="Helper\CourseHelper.cs" />
     <Compile Include="Helper\EmployerHelper.cs" />
     <Compile Include="Helper\InstructorHelper.cs" />
+    <Compile Include="Helper\JobPostHelper.cs" />
     <Compile Include="Helper\SeedingHelper.cs" />
     <Compile Include="Helper\StudentHelper.cs" />
     <Compile Include="Migrations\201910310333194_re-enabled-migration.cs" />

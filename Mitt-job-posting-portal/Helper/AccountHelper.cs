@@ -20,5 +20,9 @@ namespace Mitt_job_posting_portal.Helper
     {
       return _userManager.GetRoles(userId).First();
     }
+    public Student GetStudent(string userId)
+    {
+      return db.Student.Find(userId);
+    }
   }
 }
