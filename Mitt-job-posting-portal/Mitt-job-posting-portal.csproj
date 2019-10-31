@@ -194,10 +194,19 @@
     <Compile Include="Migrations\201910310333194_re-enabled-migration.Designer.cs">
       <DependentUpon>201910310333194_re-enabled-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910310530539_MessageAndFilePathAdded.cs" />
+    <Compile Include="Migrations\201910310530539_MessageAndFilePathAdded.Designer.cs">
+      <DependentUpon>201910310530539_MessageAndFilePathAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910310605294_StudentRealtionFixedInJobApplication.cs" />
+    <Compile Include="Migrations\201910310605294_StudentRealtionFixedInJobApplication.Designer.cs">
+      <DependentUpon>201910310605294_StudentRealtionFixedInJobApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModel\ApplicationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -339,11 +348,6 @@
     <Content Include="Views\Courses\Details.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
-    <Content Include="Views\JobApplications\Create.cshtml" />
-    <Content Include="Views\JobApplications\Delete.cshtml" />
-    <Content Include="Views\JobApplications\Details.cshtml" />
-    <Content Include="Views\JobApplications\Edit.cshtml" />
-    <Content Include="Views\JobApplications\Index.cshtml" />
     <Content Include="Views\Account\RegisterInstructor.cshtml" />
     <Content Include="Views\Account\RegisterStudent.cshtml" />
     <Content Include="Views\Account\RegisterEmployer.cshtml" />
@@ -374,6 +378,11 @@
     <Content Include="Views\JobPosts\Edit.cshtml" />
     <Content Include="Views\JobPosts\Index.cshtml" />
     <Content Include="Views\Student\GetAllStudent.cshtml" />
+    <Content Include="Views\JobApplications\Create.cshtml" />
+    <Content Include="Views\JobApplications\Delete.cshtml" />
+    <Content Include="Views\JobApplications\Details.cshtml" />
+    <Content Include="Views\JobApplications\Edit.cshtml" />
+    <Content Include="Views\JobApplications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -390,6 +399,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910310333194_re-enabled-migration.resx">
       <DependentUpon>201910310333194_re-enabled-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910310530539_MessageAndFilePathAdded.resx">
+      <DependentUpon>201910310530539_MessageAndFilePathAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910310605294_StudentRealtionFixedInJobApplication.resx">
+      <DependentUpon>201910310605294_StudentRealtionFixedInJobApplication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -34,6 +34,7 @@ namespace Mitt_job_posting_portal.Models
     public DateTime BirthDate { get; set; }
     public string PreviousEducation { get; set; }
     public string PreviousEducationDetail { get; set; }
+    public virtual ICollection<JobApplication> JobApplications { get; set; }
 
   }
   public class Employer
@@ -74,9 +75,12 @@ namespace Mitt_job_posting_portal.Models
   public class JobApplication
   {
     public int Id { get; set; }
-    public string Title { get; set; }
     public string Skills { get; set; }
-    public ICollection<Student> Students { get; set; }
+    public string Message { get; set; }
+    public string FilePath { get; set; }
+    [ForeignKey("Student")]
+    public string StudentId { get; set; }
+    public virtual Student Student { get; set; }
     public int JobPostId { get; set; }
     public virtual JobPost JobPosts { get; set; }
   }

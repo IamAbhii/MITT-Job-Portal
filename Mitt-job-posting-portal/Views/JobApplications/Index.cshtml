@@ -15,10 +15,13 @@
             @Html.DisplayNameFor(model => model.JobPosts.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Skills)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Skills)
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilePath)
         </th>
         <th></th>
     </tr>
@@ -29,10 +32,13 @@
             @Html.DisplayFor(modelItem => item.JobPosts.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Skills)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Skills)
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilePath)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
