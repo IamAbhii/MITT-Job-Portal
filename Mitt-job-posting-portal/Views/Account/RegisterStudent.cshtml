@@ -4,7 +4,7 @@
   ViewBag.Title = "RegisterStudent";
 }
 
-<h2>RegisterStudent</h2>
+<h2>Register New Student</h2>
 
 
 @using (Html.BeginForm())
@@ -26,7 +26,7 @@
   <div class="form-group">
     @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-      @Html.EditorFor(model => model.BirthDate, "{0:d MMM yyyy}", new { htmlAttributes = new { @class = "form-control datepicker" ,@value=""} })
+      @Html.EditorFor(model => model.BirthDate, "{0:d MMM yyyy}", new { htmlAttributes = new { @class = "form-control datepicker" ,value=""} })
       @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
     </div>
   </div>
@@ -84,10 +84,6 @@
   </div>
 </div>
 }
-
-<div>
-  @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
   @Scripts.Render("~/bundles/jqueryval")

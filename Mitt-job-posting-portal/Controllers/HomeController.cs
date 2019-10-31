@@ -14,6 +14,7 @@ namespace Mitt_job_posting_portal.Controllers
       db = new ApplicationDbContext();
       accountHelper = new AccountHelper(db);
     }
+    [Authorize]
     public ActionResult Index()
     {
       var userId = User.Identity.GetUserId();
@@ -39,18 +40,22 @@ namespace Mitt_job_posting_portal.Controllers
       }
       return View();
     }
+    [Authorize(Roles = "Admin")]
     public ActionResult AdminDashboard()
     {
       return View();
     }
+    [Authorize(Roles = "Student")]
     public ActionResult StudentDashboard()
     {
       return RedirectToAction("Index", "JobPosts");
     }
+    [Authorize(Roles = "Instructor")]
     public ActionResult InstructorDashboard()
     {
       return View();
     }
+    [Authorize(Roles = "Employer")]
     public ActionResult EmployerDashboard()
     {
       return View();

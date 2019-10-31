@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Mitt_job_posting_portal.Controllers
 {
+  [Authorize]
   public class JobApplicationsController : Controller
   {
     private ApplicationDbContext db = new ApplicationDbContext();
@@ -25,6 +26,7 @@ namespace Mitt_job_posting_portal.Controllers
       var jobApplication = db.JobApplication.Include(j => j.JobPosts);
       return View(jobApplication.ToList());
     }
+    [Authorize(Roles = "Admin, Employer, Instructor")]
     public ActionResult ViewAllJobApplication(int id)
     {
       var jobApplication = db.JobApplication.Where(application => application.JobPostId == id).Include(j => j.JobPosts);
@@ -53,6 +55,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     // GET: JobApplications/Create
+    [Authorize(Roles = "Student")]
     public ActionResult Create(int id)
     {
       var viewModel = new ApplicationViewModel()
@@ -90,6 +93,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     // GET: JobApplications/Edit/5
+    [Authorize(Roles = "Student")]
     public ActionResult Edit(int? id)
     {
       if (id == null)
@@ -123,6 +127,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     // GET: JobApplications/Delete/5
+    [Authorize(Roles = "Student")]
     public ActionResult Delete(int? id)
     {
       if (id == null)

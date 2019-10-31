@@ -138,43 +138,42 @@ namespace Mitt_job_posting_portal.Controllers
 
     //
     // GET: /Account/Register
-    [AllowAnonymous]
-    public ActionResult Register()
-    {
-      return View();
-    }
+    //[AllowAnonymous]
+    //public ActionResult Register()
+    //{
+    //  return View();
+    //}
 
     //
     // POST: /Account/Register
-    [HttpPost]
-    [AllowAnonymous]
-    [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Register(RegisterViewModel model)
-    {
-      if (ModelState.IsValid)
-      {
-        var user = new User { UserName = model.Email, Email = model.Email };
-        var result = await UserManager.CreateAsync(user, model.Password);
-        if (result.Succeeded)
-        {
-          await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+    //[HttpPost]
+    //[AllowAnonymous]
+    //[ValidateAntiForgeryToken]
+    //public async Task<ActionResult> Register(RegisterViewModel model)
+    //{
+    //  if (ModelState.IsValid)
+    //  {
+    //    var user = new User { UserName = model.Email, Email = model.Email };
+    //    var result = await UserManager.CreateAsync(user, model.Password);
+    //    if (result.Succeeded)
+    //    {
+    //      await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-          return RedirectToAction("Index", "Home");
-        }
-        AddErrors(result);
-      }
+    //      return RedirectToAction("Index", "Home");
+    //    }
+    //    AddErrors(result);
+    //  }
 
-      // If we got this far, something failed, redisplay form
-      return View(model);
-    }
+    //  // If we got this far, something failed, redisplay form
+    //  return View(model);
+    //}
 
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public ActionResult RegisterAdmin()
     {
       return View();
     }
     [HttpPost]
-    [AllowAnonymous]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> RegisterAdmin(RegisterAdminViewModel model)
     {
@@ -198,7 +197,7 @@ namespace Mitt_job_posting_portal.Controllers
       return View(model);
     }
 
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public ActionResult RegisterInstructor()
     {
 
@@ -214,7 +213,7 @@ namespace Mitt_job_posting_portal.Controllers
       return View(viewModel);
     }
     [HttpPost]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> RegisterInstructor(RegisterInstructorViewModel model)
     {
@@ -245,6 +244,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public ActionResult RegisterStudent()
     {
       var registrationStudentViewModel = new RegisterStudentViewModel()
@@ -282,6 +282,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public ActionResult RegisterEmployer()
     {
       return View();

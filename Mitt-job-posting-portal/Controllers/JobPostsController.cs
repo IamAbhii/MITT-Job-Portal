@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Mitt_job_posting_portal.Controllers
 {
+  [Authorize]
   public class JobPostsController : Controller
   {
     private ApplicationDbContext db = new ApplicationDbContext();
@@ -64,6 +65,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     // GET: JobPosts/Create
+    [Authorize(Roles = "Employer")]
     public ActionResult Create()
     {
       ViewBag.RoundId = new SelectList(db.Round, "Id", "IntakeTitle");
@@ -95,6 +97,7 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     // GET: JobPosts/Edit/5
+    [Authorize(Roles = "Employer")]
     public ActionResult Edit(int? id)
     {
       if (id == null)
@@ -137,6 +140,8 @@ namespace Mitt_job_posting_portal.Controllers
     }
 
     // GET: JobPosts/Delete/5
+    [Authorize(Roles = "Employer, Admin")]
+
     public ActionResult Delete(int? id)
     {
       if (id == null)

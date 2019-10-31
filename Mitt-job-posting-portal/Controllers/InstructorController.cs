@@ -14,6 +14,7 @@ namespace Mitt_job_posting_portal.Controllers
       InstructorHelper = new InstructorHelper(db);
     }
     // GET: Instructor
+    [Authorize(Roles = "Admin")]
     public ActionResult GetAllInstructor()
     {
       var allInstructor = InstructorHelper.GetAllInstructor();

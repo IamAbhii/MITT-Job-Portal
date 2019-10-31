@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace Mitt_job_posting_portal.Controllers
 {
+  [Authorize(Roles = "Admin")]
   public class EmployerController : Controller
   {
     ApplicationDbContext db;

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Mitt_job_posting_portal.Controllers
 {
+  [Authorize(Roles = "Instructor, Admin")]
   public class StudentController : Controller
   {
     ApplicationDbContext db;
