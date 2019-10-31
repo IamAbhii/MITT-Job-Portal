@@ -51,7 +51,7 @@ namespace Mitt_job_posting_portal.Controllers
     {
       return View();
     }
-    public ActionResult EmployeeDashboard()
+    public ActionResult EmployerDashboard()
     {
       return View();
     }

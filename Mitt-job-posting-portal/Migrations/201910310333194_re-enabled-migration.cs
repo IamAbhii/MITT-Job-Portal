@@ -3,44 +3,16 @@ namespace Mitt_job_posting_portal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Intial : DbMigration
+    public partial class reenabledmigration : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Courses",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        InternshipStartDate = c.DateTime(nullable: false),
-                        InternshipEndDate = c.DateTime(nullable: false),
-                        CourseStartDate = c.DateTime(nullable: false),
-                        CourseEndeDate = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.CourseInstructors",
-                c => new
-                    {
-                        InstructorId = c.String(nullable: false, maxLength: 128),
-                        CourseId = c.Int(nullable: false),
-                        Instructor_UserId = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.InstructorId, t.CourseId })
-                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
-                .ForeignKey("dbo.Instructors", t => t.Instructor_UserId)
-                .Index(t => t.CourseId)
-                .Index(t => t.Instructor_UserId);
-            
-            CreateTable(
-                "dbo.Instructors",
+                "dbo.Admins",
                 c => new
                     {
                         UserId = c.String(nullable: false, maxLength: 128),
                         Name = c.String(),
-                        Designation = c.String(),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
@@ -62,12 +34,9 @@ namespace Mitt_job_posting_portal.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
-                        JobApplication_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.JobApplications", t => t.JobApplication_Id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
-                .Index(t => t.JobApplication_Id);
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -108,25 +77,21 @@ namespace Mitt_job_posting_portal.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.Students",
+                "dbo.Courses",
                 c => new
                     {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        CourseId = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
                     })
-                .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .Index(t => t.UserId)
-                .Index(t => t.CourseId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Employers",
+                "dbo.Instructors",
                 c => new
                     {
                         UserId = c.String(nullable: false, maxLength: 128),
-                        CompanyName = c.String(),
-                        EmailAdress = c.String(),
+                        Name = c.String(),
+                        Designation = c.String(),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
@@ -139,14 +104,33 @@ namespace Mitt_job_posting_portal.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         RoundId = c.Int(nullable: false),
-                        EmployerId = c.Int(nullable: false),
-                        Employer_UserId = c.String(maxLength: 128),
+                        Skills = c.String(),
+                        Description = c.String(),
+                        Location = c.String(),
+                        EmployerId = c.String(maxLength: 128),
+                        CourseId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employers", t => t.Employer_UserId)
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Employers", t => t.EmployerId)
                 .ForeignKey("dbo.Rounds", t => t.RoundId, cascadeDelete: true)
                 .Index(t => t.RoundId)
-                .Index(t => t.Employer_UserId);
+                .Index(t => t.EmployerId)
+                .Index(t => t.CourseId);
+            
+            CreateTable(
+                "dbo.Employers",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        CompanyName = c.String(),
+                        CompanyDetails = c.String(),
+                        Companylinks = c.String(),
+                        EmailAdress = c.String(),
+                    })
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.JobApplications",
@@ -162,12 +146,33 @@ namespace Mitt_job_posting_portal.Migrations
                 .Index(t => t.JobPostId);
             
             CreateTable(
+                "dbo.Students",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        CourseId = c.Int(nullable: false),
+                        Name = c.String(),
+                        BirthDate = c.DateTime(nullable: false),
+                        PreviousEducation = c.String(),
+                        PreviousEducationDetail = c.String(),
+                        JobApplication_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .ForeignKey("dbo.JobApplications", t => t.JobApplication_Id)
+                .Index(t => t.UserId)
+                .Index(t => t.CourseId)
+                .Index(t => t.JobApplication_Id);
+            
+            CreateTable(
                 "dbo.Rounds",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        InternshipEndtDate = c.DateTime(nullable: false),
+                        IntakeTitle = c.String(),
                         InternshipStartDate = c.DateTime(nullable: false),
+                        InternshipEndDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -181,53 +186,71 @@ namespace Mitt_job_posting_portal.Migrations
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
+            CreateTable(
+                "dbo.InstructorCourses",
+                c => new
+                    {
+                        Instructor_UserId = c.String(nullable: false, maxLength: 128),
+                        Course_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Instructor_UserId, t.Course_Id })
+                .ForeignKey("dbo.Instructors", t => t.Instructor_UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Courses", t => t.Course_Id, cascadeDelete: true)
+                .Index(t => t.Instructor_UserId)
+                .Index(t => t.Course_Id);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Employers", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.JobPosts", "RoundId", "dbo.Rounds");
-            DropForeignKey("dbo.AspNetUsers", "JobApplication_Id", "dbo.JobApplications");
-            DropForeignKey("dbo.JobApplications", "JobPostId", "dbo.JobPosts");
-            DropForeignKey("dbo.JobPosts", "Employer_UserId", "dbo.Employers");
+            DropForeignKey("dbo.Students", "JobApplication_Id", "dbo.JobApplications");
             DropForeignKey("dbo.Students", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Students", "CourseId", "dbo.Courses");
+            DropForeignKey("dbo.JobApplications", "JobPostId", "dbo.JobPosts");
+            DropForeignKey("dbo.JobPosts", "EmployerId", "dbo.Employers");
+            DropForeignKey("dbo.Employers", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.JobPosts", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.Instructors", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.InstructorCourses", "Course_Id", "dbo.Courses");
+            DropForeignKey("dbo.InstructorCourses", "Instructor_UserId", "dbo.Instructors");
+            DropForeignKey("dbo.Admins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.CourseInstructors", "Instructor_UserId", "dbo.Instructors");
-            DropForeignKey("dbo.CourseInstructors", "CourseId", "dbo.Courses");
+            DropIndex("dbo.InstructorCourses", new[] { "Course_Id" });
+            DropIndex("dbo.InstructorCourses", new[] { "Instructor_UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.JobApplications", new[] { "JobPostId" });
-            DropIndex("dbo.JobPosts", new[] { "Employer_UserId" });
-            DropIndex("dbo.JobPosts", new[] { "RoundId" });
-            DropIndex("dbo.Employers", new[] { "UserId" });
+            DropIndex("dbo.Students", new[] { "JobApplication_Id" });
             DropIndex("dbo.Students", new[] { "CourseId" });
             DropIndex("dbo.Students", new[] { "UserId" });
+            DropIndex("dbo.JobApplications", new[] { "JobPostId" });
+            DropIndex("dbo.Employers", new[] { "UserId" });
+            DropIndex("dbo.JobPosts", new[] { "CourseId" });
+            DropIndex("dbo.JobPosts", new[] { "EmployerId" });
+            DropIndex("dbo.JobPosts", new[] { "RoundId" });
+            DropIndex("dbo.Instructors", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", new[] { "JobApplication_Id" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Instructors", new[] { "UserId" });
-            DropIndex("dbo.CourseInstructors", new[] { "Instructor_UserId" });
-            DropIndex("dbo.CourseInstructors", new[] { "CourseId" });
+            DropIndex("dbo.Admins", new[] { "UserId" });
+            DropTable("dbo.InstructorCourses");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Rounds");
-            DropTable("dbo.JobApplications");
-            DropTable("dbo.JobPosts");
-            DropTable("dbo.Employers");
             DropTable("dbo.Students");
+            DropTable("dbo.JobApplications");
+            DropTable("dbo.Employers");
+            DropTable("dbo.JobPosts");
+            DropTable("dbo.Instructors");
+            DropTable("dbo.Courses");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.Instructors");
-            DropTable("dbo.CourseInstructors");
-            DropTable("dbo.Courses");
+            DropTable("dbo.Admins");
         }
     }
 }

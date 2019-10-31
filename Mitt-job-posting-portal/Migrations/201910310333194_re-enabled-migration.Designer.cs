@@ -7,13 +7,13 @@ namespace Mitt_job_posting_portal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedNewPropertiesToJobpost : IMigrationMetadata
+    public sealed partial class reenabledmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedNewPropertiesToJobpost));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(reenabledmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910301448285_AddedNewPropertiesToJobpost"; }
+            get { return "201910310333194_re-enabled-migration"; }
         }
         
         string IMigrationMetadata.Source

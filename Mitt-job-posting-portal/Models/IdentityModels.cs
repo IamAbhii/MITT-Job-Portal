@@ -91,6 +91,7 @@ namespace Mitt_job_posting_portal.Models
     public string Skills { get; set; }
     public string Description { get; set; }
     public string Location { get; set; }
+    [ForeignKey("Employer")]
     public string EmployerId { get; set; }
     public virtual Employer Employer { get; set; }
     public int CourseId { get; set; }
@@ -103,7 +104,6 @@ namespace Mitt_job_posting_portal.Models
     public string IntakeTitle { get; set; }
     public DateTime InternshipStartDate { get; set; }
     public DateTime InternshipEndDate { get; set; }
-    
     public virtual ICollection<JobPost> JobPosts { get; set; }
 
   }

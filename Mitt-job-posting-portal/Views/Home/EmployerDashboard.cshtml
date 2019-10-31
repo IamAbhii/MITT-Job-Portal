@@ -1,7 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "EmployeeDashboard";
+  ViewBag.Title = "EmployeeDashboard";
 }
 
 <h2>Employer Dashboard</h2>
 
+<div class="row mt-4">
+  <div class="col-md-6 text-center">
+    @Html.ActionLink("Create new Job-Post", "Create", "JobPosts", null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col-md-6 text-center">
+    @Html.ActionLink("View all Job-Post", "Index", "JobPosts", null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+</div>

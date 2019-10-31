@@ -189,57 +189,9 @@
     <Compile Include="Helper\InstructorHelper.cs" />
     <Compile Include="Helper\SeedingHelper.cs" />
     <Compile Include="Helper\StudentHelper.cs" />
-    <Compile Include="Migrations\201910221850390_Intial.cs" />
-    <Compile Include="Migrations\201910221850390_Intial.Designer.cs">
-      <DependentUpon>201910221850390_Intial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910241432185_tblStudentBirthDateAndEducationDetailAdded.cs" />
-    <Compile Include="Migrations\201910241432185_tblStudentBirthDateAndEducationDetailAdded.Designer.cs">
-      <DependentUpon>201910241432185_tblStudentBirthDateAndEducationDetailAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910241435234_tblStudentNameAdded.cs" />
-    <Compile Include="Migrations\201910241435234_tblStudentNameAdded.Designer.cs">
-      <DependentUpon>201910241435234_tblStudentNameAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910241601536_tblCourseStartDateAndEndDatesDeleted.cs" />
-    <Compile Include="Migrations\201910241601536_tblCourseStartDateAndEndDatesDeleted.Designer.cs">
-      <DependentUpon>201910241601536_tblCourseStartDateAndEndDatesDeleted.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.cs" />
-    <Compile Include="Migrations\201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.Designer.cs">
-      <DependentUpon>201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910261803599_AdminTableAdded.cs" />
-    <Compile Include="Migrations\201910261803599_AdminTableAdded.Designer.cs">
-      <DependentUpon>201910261803599_AdminTableAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291608127_CourseInstructorIdAdded.cs" />
-    <Compile Include="Migrations\201910291608127_CourseInstructorIdAdded.Designer.cs">
-      <DependentUpon>201910291608127_CourseInstructorIdAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291748052_CourseInstructorExtraIdFix.cs" />
-    <Compile Include="Migrations\201910291748052_CourseInstructorExtraIdFix.Designer.cs">
-      <DependentUpon>201910291748052_CourseInstructorExtraIdFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910291752021_UserExtraIdFix.cs" />
-    <Compile Include="Migrations\201910291752021_UserExtraIdFix.Designer.cs">
-      <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910300341542_AddedJoppostController1.cs" />
-    <Compile Include="Migrations\201910300341542_AddedJoppostController1.Designer.cs">
-      <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910301448285_AddedNewPropertiesToJobpost.cs" />
-    <Compile Include="Migrations\201910301448285_AddedNewPropertiesToJobpost.Designer.cs">
-      <DependentUpon>201910301448285_AddedNewPropertiesToJobpost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.cs" />
-    <Compile Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.Designer.cs">
-      <DependentUpon>201910301534020_AddedNewPropertiesToJobpost1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201910301947220_JobPostModified.cs" />
-    <Compile Include="Migrations\201910301947220_JobPostModified.Designer.cs">
-      <DependentUpon>201910301947220_JobPostModified.cs</DependentUpon>
+    <Compile Include="Migrations\201910310333194_re-enabled-migration.cs" />
+    <Compile Include="Migrations\201910310333194_re-enabled-migration.Designer.cs">
+      <DependentUpon>201910310333194_re-enabled-migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -429,51 +381,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910221850390_Intial.resx">
-      <DependentUpon>201910221850390_Intial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910241432185_tblStudentBirthDateAndEducationDetailAdded.resx">
-      <DependentUpon>201910241432185_tblStudentBirthDateAndEducationDetailAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910241435234_tblStudentNameAdded.resx">
-      <DependentUpon>201910241435234_tblStudentNameAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910241601536_tblCourseStartDateAndEndDatesDeleted.resx">
-      <DependentUpon>201910241601536_tblCourseStartDateAndEndDatesDeleted.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.resx">
-      <DependentUpon>201910241858587_tblEmployeeCompanyDetailsCompanylinksAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910261803599_AdminTableAdded.resx">
-      <DependentUpon>201910261803599_AdminTableAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291608127_CourseInstructorIdAdded.resx">
-      <DependentUpon>201910291608127_CourseInstructorIdAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291748052_CourseInstructorExtraIdFix.resx">
-      <DependentUpon>201910291748052_CourseInstructorExtraIdFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910291752021_UserExtraIdFix.resx">
-      <DependentUpon>201910291752021_UserExtraIdFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910300341542_AddedJoppostController1.resx">
-      <DependentUpon>201910300341542_AddedJoppostController1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910301448285_AddedNewPropertiesToJobpost.resx">
-      <DependentUpon>201910301448285_AddedNewPropertiesToJobpost.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910301534020_AddedNewPropertiesToJobpost1.resx">
-      <DependentUpon>201910301534020_AddedNewPropertiesToJobpost1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201910301947220_JobPostModified.resx">
-      <DependentUpon>201910301947220_JobPostModified.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910310333194_re-enabled-migration.resx">
+      <DependentUpon>201910310333194_re-enabled-migration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
