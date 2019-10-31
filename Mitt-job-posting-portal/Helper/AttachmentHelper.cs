@@ -13,7 +13,8 @@ namespace Mitt_job_posting_portal.Helper
       string FileExtension = Path.GetExtension(file.FileName);
       fileName = DateTime.Now.ToString("yyyyMMdd") + "-" + fileName.Trim() + FileExtension;
       string UploadPath = ConfigurationManager.AppSettings["AttachmentPath"].ToString();
-      string filePath = UploadPath + fileName;
+      string combinedPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, UploadPath);
+      string filePath = combinedPath + fileName;
       file.SaveAs(filePath);
       return filePath;
     }
