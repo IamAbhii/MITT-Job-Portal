@@ -15,10 +15,12 @@ namespace Mitt_job_posting_portal.Controllers
     private ApplicationDbContext db = new ApplicationDbContext();
     AccountHelper userManager;
     JobPostHelper jobPostHelper;
+    EmailHelper emailHelper;
     public JobPostsController()
     {
       this.userManager = new AccountHelper(db);
       this.jobPostHelper = new JobPostHelper(db);
+      emailHelper = new EmailHelper();
     }
     // GET: JobPosts
     public ActionResult Index()
@@ -89,10 +91,18 @@ namespace Mitt_job_posting_portal.Controllers
         jobPost.Employer = user;
         db.JobPost.Add(jobPost);
         db.SaveChanges();
+        var course = db.Course.Find(jobPost.CourseId);
+
+
+        foreach (var student in course.Students.ToList())
+        {
+          emailHelper.sendNotification(student.User.Email, jobPost);
+        }
         return RedirectToAction("Index");
       }
 
       ViewBag.RoundId = new SelectList(db.Round, "Id", "IntakeTitle", jobPost.RoundId);
+
       return View(jobPost);
     }
 

@@ -119,6 +119,7 @@ namespace Mitt_job_posting_portal.Models
     public Course()
     {
       Instructors = new HashSet<Instructor>();
+      Students = new HashSet<Student>();
     }
     public int Id { get; set; }
     public string Name { get; set; }

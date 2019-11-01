@@ -15,15 +15,19 @@ namespace Mitt_job_posting_portal.Controllers
   {
     private ApplicationDbContext db = new ApplicationDbContext();
     AttachmentHelper attachmentHelper;
+    EmailHelper emailHelper;
     public JobApplicationsController()
     {
       attachmentHelper = new AttachmentHelper();
+      emailHelper = new EmailHelper();
     }
 
     // GET: JobApplications
+    [Authorize(Roles = "Student")]
     public ActionResult Index()
     {
-      var jobApplication = db.JobApplication.Include(j => j.JobPosts);
+      var UserId = User.Identity.GetUserId();
+      var jobApplication = db.JobApplication.Where(application => application.StudentId == UserId).Include(j => j.JobPosts);
       return View(jobApplication.ToList());
     }
     [Authorize(Roles = "Admin, Employer, Instructor")]

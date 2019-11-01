@@ -3,5 +3,12 @@
     ViewBag.Title = "StudentDashboard";
 }
 
-<h2>StudentDashboard</h2>
-
+<h2>Student Dashboard</h2>
+<div class="row mt-4">
+  <div class="col text-center">
+    @Html.ActionLink("View all Job-Post", "Index", "JobPosts", null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+  <div class="col text-center">
+    @Html.ActionLink("View all Application", "Index", "Rounds", null, new { @class = "btn btn-primary btn-lg" })
+  </div>
+</div>

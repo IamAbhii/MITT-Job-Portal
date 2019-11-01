@@ -186,6 +186,7 @@
     <Compile Include="Helper\AccountHelper.cs" />
     <Compile Include="Helper\AttachmentHelper.cs" />
     <Compile Include="Helper\CourseHelper.cs" />
+    <Compile Include="Helper\EmailHelper.cs" />
     <Compile Include="Helper\EmployerHelper.cs" />
     <Compile Include="Helper\InstructorHelper.cs" />
     <Compile Include="Helper\JobPostHelper.cs" />

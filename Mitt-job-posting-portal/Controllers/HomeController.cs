@@ -48,7 +48,7 @@ namespace Mitt_job_posting_portal.Controllers
     [Authorize(Roles = "Student")]
     public ActionResult StudentDashboard()
     {
-      return RedirectToAction("Index", "JobPosts");
+      return View();
     }
     [Authorize(Roles = "Instructor")]
     public ActionResult InstructorDashboard()
